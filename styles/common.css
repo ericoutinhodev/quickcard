@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root {
+    --color-text: #444;
+    --color-text-snd: #999;
+    --color-text-error: #bf3131;
+    --color-bg-fst: #8eabe6;
+    --color-bg-snd: #f1f1ff;
+    --border-radius: 5px;
+    --color-btn-fst: #6699FF;
+    --color-btn-fst-lgt: #9ebeff;
+    --color-btn-snd: #265073;
+    --font-size: 16px;
+
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size);
+}
+
+body {
+    color: var(--color-text);
+    font-family: "Noto Sans", sans-serif;
+}
+
+.cb-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.cb-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+}
+
+.cb-form-group :is(label, small) {
+    margin-left: 3px;
+}
+
+.cb-form-group label {
+    font-weight: 500;
+}
+
+.cb-form-group small {
+    font-size: .8rem;
+    color: #555;
+}
+
+.cb-form-text {
+    padding: .4rem;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: .9rem;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.cb-form-group.error .cb-form-text {
+    outline: 3px solid rgba(191,49,49, 0.35);
+}
+
+.cb-form-text:focus {
+    outline: 2px solid var(--color-btn-fst-lgt) ;
+}
+
+.cb-form-text::placeholder {
+    color: #AAA;
+}
+
+
+.cb-text-info {
+    display: none;
+}
+
+.cb-form-group.error .cb-text-info {
+    color: var(--color-text-error);
+    display: block;
+}
+
+
+.cb-button {
+    display: inline-block;
+    align-self: center;
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.cb-button:focus {
+    outline: 3px solid #ded;
+}
+
+.cb-button:hover {
+    cursor: pointer;
+    filter: brightness(1.07);
+}
+
+.cb-button.cb-button-active {
+    background: var(--color-btn-fst);
+    color: #fff;
+}
+
+.cb-button.cb-button-cancel {
+    background-color: var(--color-btn-snd);
+    color: #fff;
+}
+
+.cb-button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+}

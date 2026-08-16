@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "name": "Quick card",
+    "description": "Extensão para auxiliar busca por cards no Jira",
+    "author": "Eric Coutinho",
+    "permissions": ["contextMenus", "storage", "management"],
+    "options_page": "options.html",
+    "action": {
+        "default_title": "Quick card",
+        "default_popup": "popup.html",
+        "options": "options.html",
+        "default_icon": "images/icon.png"
+    },
+    "icons": {
+        "16": "images/icon.png",
+        "128": "images/icon.png",
+        "256": "images/icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
