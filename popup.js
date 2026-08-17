@@ -3,13 +3,11 @@ let textSearch = document.querySelector("#cbSearch");
 let btnSearch = document.querySelector("#js-search-button");
 
 // Create link to settings page
-chrome.management.getSelf().then( (result) => {
-    document.querySelector("#js-settings-link").href = result.optionsUrl;
-});
+document.querySelector("#js-settings-link").href = chrome.runtime.getURL("options.html");
 
 chrome.storage.local.get(["cbBaseUrl"]).then((result) => {
     var url = result.cbBaseUrl;
-    if (url != "") {
+    if (url != "" && url != null) {
         baseUrl = url;
     }
 });
@@ -17,10 +15,10 @@ chrome.storage.local.get(["cbBaseUrl"]).then((result) => {
 btnSearch.addEventListener("click", (event) => {
     event.preventDefault();
     if (textSearch.value != null && textSearch.value != "") {
-        chrome.tabs.create({ url: `${baseUrl}dosearchsite.action?cql=siteSearch+~+"${textSearch.value}"&queryString=${textSearch.value}` });
+        chrome.tabs.create({ url: `${baseUrl}/${textSearch.value}` });
     } else {
         document.querySelector(".cb-form").classList.add("error");        
     }
 });
 
-chrome.management.getSelf().then( result => document.querySelector(".vtag").innerHTML = "v" + result.version );
+document.querySelector(".vtag").innerHTML = "v" + chrome.runtime.getManifest().version;

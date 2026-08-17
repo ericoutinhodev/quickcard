@@ -16,7 +16,7 @@ chrome.management.getSelf()
     .then( result => extensionInfo = result );
 
 chrome.runtime.onInstalled.addListener(({ reason }) => {
-    chrome.storage.local.set({ "cbBaseUrl" : "https://www.atlassian.com/br/" });
+    chrome.storage.local.set({ "cbBaseUrl" : "https://jira.banestes.com.br/browse" });
 });
 
 chrome.contextMenus.onClicked.addListener(genericOnClick); 
@@ -28,9 +28,8 @@ chrome.contextMenus.create({
 });
 
 function genericOnClick(info) {
-    console.log(info)
     chrome.storage.local.get(["cbBaseUrl"])
         .then((result) => {
-            chrome.tabs.create({ url: `${result.cbBaseUrl}dosearchsite.action?cql=siteSearch+~+"${info.selectionText}"&queryString=${info.selectionText}` });
+            chrome.tabs.create({ url: `${result.cbBaseUrl}/${info.selectionText}` });
         });
 }
