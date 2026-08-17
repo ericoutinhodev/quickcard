@@ -24,7 +24,7 @@ chrome.contextMenus.onClicked.addListener(genericOnClick);
 chrome.contextMenus.create({
     title: "Buscar no Jira com Quick card",
     contexts: ["selection"],
-    id: "cb-buscar"
+    id: "cb-buscar" + Date.now()
 });
 
 function genericOnClick(info) {

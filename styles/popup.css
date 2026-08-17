@@ -13,3 +13,15 @@ footer {
     font-size: .75rem;
     color: var(--color-text-snd);
 }
+
+.cb-form small {
+    display: none;
+    margin-top: -.45rem;
+    font-size: .85rem;
+    text-align: center;
+}
+
+.cb-form.error small{
+    color: cornflowerblue; 
+    display: block;
+}
