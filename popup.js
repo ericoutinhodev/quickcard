@@ -16,7 +16,11 @@ chrome.storage.local.get(["cbBaseUrl"]).then((result) => {
 
 btnSearch.addEventListener("click", (event) => {
     event.preventDefault();
-    chrome.tabs.create({ url: `${baseUrl}dosearchsite.action?cql=siteSearch+~+"${textSearch.value}"&queryString=${textSearch.value}` });
+    if (textSearch.value != null && textSearch.value != "") {
+        chrome.tabs.create({ url: `${baseUrl}dosearchsite.action?cql=siteSearch+~+"${textSearch.value}"&queryString=${textSearch.value}` });
+    } else {
+        document.querySelector(".cb-form").classList.add("error");        
+    }
 });
 
 chrome.management.getSelf().then( result => document.querySelector(".vtag").innerHTML = "v" + result.version );
