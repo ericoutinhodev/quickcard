@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Quick card",
     "description": "Extensão para auxiliar busca por cards no Jira",
     "author": "Eric Coutinho",
